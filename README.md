@@ -1,7 +1,7 @@
 # pawcho Zadanie 1
 
 ## Table of Contents
--[Commands](#commands)
+- [Commands](#commands)
 - [Build](#build)
 - [Screens](#screens)
 
