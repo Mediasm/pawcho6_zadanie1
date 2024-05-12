@@ -1,10 +1,18 @@
-Commands:
+# pawcho Zadanie 1
+
+## Table of Contents
+-[Commands](#commands)
+- [Build](#build)
+- [Screens](#screens)
+
+
+## Commands
 ```
 docker build -t zadanie1_alpine:v1 .
 docker run -d -p 5001:5000 --name zadanie1_alpine_v1 zadanie1_alpine:v1
 ```
 
-Terminal:
+## Build
 ```
 PS D:\sem6\Docker\zad1> docker build -t zadanie1_alpine:v1 .
 [+] Building 1.3s (14/14) FINISHED                                                                                                                                                                                                                                                               docker:default
@@ -49,6 +57,6 @@ v1: digest: sha256:c837701620c38dd497a619e81cc6028f19f20c443fa33478d76afb2282125
 PS D:\sem6\Docker\zad1> 
 ```
 
-Screenshot of working server:
+## Screens
 ![brave_BbXNvqdmCl](https://github.com/Mediasm/pawcho6_zadanie1/assets/157932032/ce3c7e03-bd07-4767-8906-978c7010ec4e)
 
