@@ -1,9 +1,10 @@
 Commands:
-docker build -t zadanie1_alpine:v1 .
+```docker build -t zadanie1_alpine:v1 .
 docker run -d -p 5001:5000 --name zadanie1_alpine_v1 zadanie1_alpine:v1
-
+```
 
 Terminal:
+```
 PS D:\sem6\Docker\zad1> docker build -t zadanie1_alpine:v1 .
 [+] Building 1.3s (14/14) FINISHED                                                                                                                                                                                                                                                               docker:default
  => [internal] load build definition from Dockerfile                                                                                                                                                                                                                                                       0.0s
@@ -33,3 +34,4 @@ What's Next?
 PS D:\sem6\Docker\zad1> docker run -d -p 5001:5000 --name zadanie1_alpine_v1 zadanie1_alpine:v1
 6175363d5f985031f0ee60f761593ccd4b22f4357660225e761fc7b850b5cb66
 PS D:\sem6\Docker\zad1> 
+```
