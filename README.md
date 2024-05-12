@@ -1,5 +1,6 @@
 Commands:
-```docker build -t zadanie1_alpine:v1 .
+```
+docker build -t zadanie1_alpine:v1 .
 docker run -d -p 5001:5000 --name zadanie1_alpine_v1 zadanie1_alpine:v1
 ```
 
