@@ -35,4 +35,20 @@ What's Next?
 PS D:\sem6\Docker\zad1> docker run -d -p 5001:5000 --name zadanie1_alpine_v1 zadanie1_alpine:v1
 6175363d5f985031f0ee60f761593ccd4b22f4357660225e761fc7b850b5cb66
 PS D:\sem6\Docker\zad1> 
+
+PS D:\sem6\Docker\zad1> docker tag zadanie1_scratch:v1 artemsm/zadanie1:v1
+PS D:\sem6\Docker\zad1> docker push artemsm/zadanie1:v1
+The push refers to repository [docker.io/artemsm/zadanie1]
+c873980e0a31: Pushed
+b08893b86b37: Pushed
+3655e60edf1e: Mounted from library/node
+e16aca399ffb: Mounted from library/node
+833736bedc1c: Mounted from library/node
+d4fc045c9e3a: Mounted from library/node
+v1: digest: sha256:c837701620c38dd497a619e81cc6028f19f20c443fa33478d76afb22821259dd size: 1577
+PS D:\sem6\Docker\zad1> 
 ```
+
+Screenshot of working server:
+![brave_BbXNvqdmCl](https://github.com/Mediasm/pawcho6_zadanie1/assets/157932032/ce3c7e03-bd07-4767-8906-978c7010ec4e)
+
