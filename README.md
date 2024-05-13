@@ -60,3 +60,40 @@ PS D:\sem6\Docker\zad1>
 ## Screens
 ![brave_BbXNvqdmCl](https://github.com/Mediasm/pawcho6_zadanie1/assets/157932032/ce3c7e03-bd07-4767-8906-978c7010ec4e)
 
+# pawcho Zadanie 1 dodatkowe
+
+## Table of Contents
+- [Build image for linux/arm64 and linux/amd64](#linux/arm64&linux/amd64)
+
+## Build image for linux/arm64 and linux/amd64
+
+### Modify Dockerfile -> Dockerfile_linux
+```
+Modified with:
+
+# syntax = docker/dockerfile:1.4
+RUN --mount=type=cache,target=/home/node/app/.npm,sharing=locked
+```
+
+### Creating builder
+```
+PS D:\sem6\Docker\zad1> docker buildx use zad1builder                                                   
+PS D:\sem6\Docker\zad1> docker buildx ls                                 
+zad1builder *    docker-container
+  zad1builder0   npipe:////./pipe/docker_engine running v0.13.2  linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/mips64le, linux/mips64, linux/arm/v7, linux/arm/v6
+default          docker
+  default        default                        running v0.12.5  linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/mips64le, linux/mips64, linux/arm/v7, linux/arm/v6
+desktop-linux    docker
+  desktop-linux  desktop-linux                  running v0.12.5  linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/mips64le, linux/mips64, linux/arm/v7, linux/arm/v6
+PS D:\sem6\Docker\zad1>
+```
+
+### Build image
+
+```
+docker buildx build   --platform linux/amd64,linux/arm64   --build-arg VERSION='1.0'   --push   --cache-from type=registry,ref=artemsm/zadanie1:v1   --cache-to type=registry,ref=artemsm/zadanie1:v2-linux,mode=max -f Dockerfile_linux   -t artemsm/zadanie1:v2-linux .
+```
+
+```
+https://hub.docker.com/layers/artemsm/zadanie1/v2-linux/images/sha256-2190e13a05c2ac2002863ca2f704e1b7529dfd0991a60859bdf49d47a4c7270b?context=repo
+```
