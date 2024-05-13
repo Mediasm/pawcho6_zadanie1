@@ -94,6 +94,4 @@ PS D:\sem6\Docker\zad1>
 docker buildx build   --platform linux/amd64,linux/arm64   --build-arg VERSION='1.0'   --push   --cache-from type=registry,ref=artemsm/zadanie1:v1   --cache-to type=registry,ref=artemsm/zadanie1:v2-linux,mode=max -f Dockerfile_linux   -t artemsm/zadanie1:v2-linux .
 ```
 
-```
 https://hub.docker.com/layers/artemsm/zadanie1/v2-linux/images/sha256-2190e13a05c2ac2002863ca2f704e1b7529dfd0991a60859bdf49d47a4c7270b?context=repo
-```
