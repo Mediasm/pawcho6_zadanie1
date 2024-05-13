@@ -153,3 +153,5 @@ Server started on port 5000. Author: Artem Smolii.
 ```
 
 ### Screens
+
+![Docker_Desktop_VCw5jvftki](https://github.com/Mediasm/pawcho6_zadanie1/assets/157932032/bcca3cab-ee32-446f-b80b-94cbde5bc58d)
