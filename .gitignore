@@ -47,5 +47,7 @@ typings/
 
 .ssh
 
+*.pdf
+
 # macOS
 .DS_Store
