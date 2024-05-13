@@ -1,0 +1,43 @@
+# syntax=docker/dockerfile:1.4
+# Author: Artem Smolii
+
+# Stage 1: clone repo
+FROM alpine/git AS source
+WORKDIR /app
+
+# Add the private SSH key to the container
+ARG SSH_PRIVATE_KEY
+RUN mkdir -p /root/.ssh && echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa
+
+# Add GitHub to known hosts
+RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
+
+# Clone the repo
+RUN git clone https://github.com/Mediasm/zadanie1-app.git
+
+# Stage 2: build app
+FROM node:alpine AS builder
+WORKDIR /app
+# Copy the contents of the cloned repository, NOT the entire /app directory
+COPY --from=source /app/zadanie1-app /app 
+
+# Install dependencies
+RUN npm install
+
+# Stage 3: run app
+FROM node:alpine 
+LABEL maintainer="Artem Smolii"
+WORKDIR /app
+COPY --from=builder /app /app
+
+# Log startup information 
+RUN echo "Server started on $(date) by Artem Smolii, listening on port 5000"
+
+# Expose the server port
+EXPOSE 5000
+
+# Health Check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 CMD curl -f http://localhost:5000/ || exit 1
+
+# Start the application
+CMD ["node", "app.js"] 
